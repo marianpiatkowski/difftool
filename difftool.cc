@@ -2,6 +2,7 @@
 #include <fstream>
 #include <cstdlib>
 #include <sstream>
+#include <array>
 #include <cassert>
 
 /** \brief Mimic git difftool outside of git.
@@ -43,9 +44,9 @@ int main(int argc, char** argv)
         iss >> file1;
         iss >> file2; iss >> file2;
         // test invocation with opendiff
-        char answer[100];
+        std::array<char,100> answer;
         std::cout << "Launch 'opendiff' [Y/n]? ";
-        std::fgets(answer, 100, stdin);
+        std::fgets(&answer[0], 100, stdin);
         if(answer[0] == 'y' or answer[0] == 'Y' or answer[0] == '\n')
         {
           std::ostringstream diff_ext_cmd;
