@@ -46,7 +46,7 @@ int main(int argc, char** argv)
         // test invocation with opendiff
         std::array<char,100> answer;
         std::cout << "Launch 'opendiff' [Y/n]? ";
-        std::fgets(&answer[0], answer.size(), stdin);
+        std::fgets(std::addressof(answer[0]), answer.size(), stdin);
         if(answer[0] == 'y' or answer[0] == 'Y' or answer[0] == '\n')
         {
           std::ostringstream diff_ext_cmd;
